@@ -7,6 +7,10 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import App from "./App";
 import "./styles/index.scss";
+import rootReducer from './reducers';
+import { getPosts } from "./actions/post.action";
+
+
 
 const store = createStore(
 
@@ -14,6 +18,8 @@ const store = createStore(
     composeWithDevTools(applyMiddleware(thunk))
 
 );
+
+store.dispatch(getPosts());
 
 ReactDOM.render(
     
